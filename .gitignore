@@ -1,0 +1,55 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Output directories
+.next/
+out/
+build/
+
+# Essential Next.js files and folders
+*.log
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*
+.next/
+
+# Static files output
+public/static/
+
+# Production files
+.DS_Store
+dist/
+
+# TypeScript
+*.tsbuildinfo
+
+# .eslintcache for ESLint cache
+.eslintcache
+
+# MacOS files
+.DS_Store
+
+# Linux files
+*~
+*.swp
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
