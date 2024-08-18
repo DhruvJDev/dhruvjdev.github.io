@@ -10,7 +10,8 @@ import
     FaHtml5,
     FaCss3,
     FaJs,
-    FaReact,
+    FaGithub,
+    FaGitAlt,
     FaNodeJs,
     FaFigma,
     FaPython,
@@ -107,6 +108,12 @@ const certification = {
         "Explore My Collection of Certifications.",
     items: [
         {
+            institution: "Linked Learning",
+            degree: "Microsoft Office Fundamentals",
+            duration: "March 2024",
+            link: "https://drive.google.com/file/d/1RRmXKgOa88R_IH3mA7d2p8CNhV01KXzr/view?usp=share_link",
+        },
+        {
             institution: "COURSE",
             degree: "Introduction to Social Media Marketing",
             duration: "March 2023",
@@ -123,6 +130,24 @@ const certification = {
             degree: "Advertising with Meta",
             duration: "March 2023",
             link: "https://coursera.org/verify/SY54X364VKXP",
+        },
+        {
+            institution: "Infosys Springboard",
+            degree: "Infosys Object Oriented Programming using Python",
+            duration: "November 2022",
+            link: "https://drive.google.com/file/d/189vTRNAqH47r3Hdocz_eR6ds8iq168A3/view?usp=share_link",
+        },
+        {
+            institution: "Infosys Springboard",
+            degree: "Infosys React JS  ",
+            duration: "September 2022",
+            link: "https://drive.google.com/file/d/1KwDBQWzbV7D4SVLa0XyYlmJuipxihPxo/view?usp=share_link",
+        },
+        {
+            institution: "Infosys Springboard",
+            degree: "Infosys React Native  ",
+            duration: "September 2022",
+            link: "https://drive.google.com/file/d/1LQuOCEOc-99aMwTi698Iklsv3jOvmXkt/view?usp=share_link",
         },
         {
             institution: "Great Learning Academy",
@@ -177,6 +202,14 @@ const skill = {
         {
             icon: <FaFigma />,
             name: "Figma",
+        },
+        {
+            icon: <FaGithub />,
+            name: "Github",
+        },
+        {
+            icon: <FaGitAlt />,
+            name: "Git",
         },
     ]
 };
@@ -344,7 +377,7 @@ const Resume = () =>
                                         <li key={index}>
                                             <TooltipProvider delayDuration={100}>
                                                 <Tooltip>
-                                                    <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
+                                                    <TooltipTrigger className="w-full h-[130px] bg-[#232329] rounded-xl flex justify-center items-center group">
                                                         <div className="text-6xl group-hover:text-accent transition-all duration-300">
                                                             {skill.icon}
                                                         </div>
