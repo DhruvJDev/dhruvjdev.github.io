@@ -8,13 +8,12 @@ import "swiper/css";
 
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 
-import
-    {
-        Tooltip,
-        TooltipContent,
-        TooltipProvider,
-        TooltipTrigger,
-    } from "@/components/ui/tooltip";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -23,7 +22,6 @@ import { Description } from "@radix-ui/react-dialog";
 
 const projects = [
     {
-        num: "01",
         category: "Front-end",
         title: "Protect Environment",
         description: "Environs is a responsive website template for environmental NGOs, featuring social media integration, SEO optimization, and donation support. Built with Bootstrap 5, HTML5, CSS3, and jQuery3, it helps organizations effectively communicate and engage supporters.",
@@ -33,12 +31,10 @@ const projects = [
         github: "https://github.com/DhruvJDev/Protect-Environment",
     },
     {
-
-        num: "02",
         category: "Front-end",
         title: "Made Setup",
         description:
-            "Here you con buy any or ever product related to your Setup, it also contain some catagories like gamers, designers, etc. so you can product according to your specification or requirement. ",
+            "Here you can buy any or every product related to your setup, including categories like gamers, designers, etc., so you can choose products according to your specification or requirement.",
         stack: [{ name: "HTML5" }, { name: "CSS3" }, { name: "JavaScript" }],
         image: '/assets/work/p-2.png',
         live: "",
@@ -47,12 +43,10 @@ const projects = [
     // Additional projects can be added here
 ];
 
-const Work = () =>
-{
+const Work = () => {
     const [project, setProject] = useState(projects[0]);
 
-    const handleSlideChange = (swiper) =>
-    {
+    const handleSlideChange = (swiper) => {
         // get current slide index
         const currentIndex = swiper.activeIndex;
         // update project state based on current slide index
@@ -74,7 +68,8 @@ const Work = () =>
                         <div className="flex flex-col gap-[30px] h-[100%]">
                             {/* outline num */}
                             <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
-                                {project.num}
+                                {/* Dynamically generate the project number */}
+                                {`0${projects.indexOf(project) + 1}`}
                             </div>
                             {/* project title */}
                             <h2 className="text-[40px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
@@ -176,6 +171,6 @@ const Work = () =>
             </div>
         </motion.section>
     );
-}
+};
 
 export default Work;
