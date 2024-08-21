@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
-import
-{
+
+import {
     Select,
     SelectContent,
     SelectGroup,
@@ -15,7 +15,9 @@ import
     SelectValue,
 } from "@/components/ui/select";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
-import emailjs from 'emailjs-com'
+import emailjs from 'emailjs-com';
+import { motion } from "framer-motion";
+
 const info = [
     {
         icon: <FaPhoneAlt />,
@@ -36,10 +38,26 @@ const info = [
         link: "https://maps.app.goo.gl/SYcaoStmLaCmvVU96",
     },
 ];
-import { motion } from "framer-motion";
 
-const Contact = () =>
-{
+const Contact = () => {
+    const formRef = useRef(null);
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm("service_54c80gp", "template_ue8t3bm", formRef.current, {
+            publicKey: "5Hu9yhucEO8IN9OeP",
+        }).then(
+            () => {
+                console.log('SUCCESS!');
+                console.log('Message Sent')
+            },
+            (error) => {
+                console.log('FAILED...', error.text);
+            }
+        );
+    };
+
     return (
         <motion.section
             initial={{ opacity: 0 }}
@@ -53,39 +71,43 @@ const Contact = () =>
                 <div className="flex flex-col xl:flex-row gap-[30px]">
                     {/* form */}
                     <div className="xl:w-[54%] order-2 xl:order-none">
-                        <form action="" className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+                        <form
+                            ref={formRef}
+                            action=""
+                            onSubmit={sendEmail}
+                            className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
+                        >
                             <h3 className="text-3xl text-accent">Let's Work Together</h3>
-                            <p className="text-white/60">Have a project in mind or just want to say hello? Get in touch with me using the form below, and I'll get back to you as soon as possible!
+                            <p className="text-white/60">
+                                Have a project in mind or just want to say hello? Get in touch with me using the form below, and I'll get back to you as soon as possible!
                             </p>
                             {/* input */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <Input type="firstname" name="user_fname" placeholder="First Name" required />
+                                <Input type="firstname" name="user_fname" placeholder="First Name*" required />
                                 <Input type="lastname" name="user_lname" placeholder="Last Lame" />
-                                <Input type="email" name="user_email" placeholder="E-mail Id" required />
+                                <Input type="email" name="user_email" placeholder="E-mail Id*" required />
                                 <Input type="tel" name="user_number" placeholder="Mobile Number" />
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
-                                <Input type="subject" name="user_subject" placeholder="Subject/Purpose" required />
+                                <Input type="subject" name="user_subject" placeholder="Subject/Purpose*" required />
                             </div>
                             {/* textarea */}
                             <Textarea
                                 className="h-[150px]"
-                                placeholder="Enter your message here..."
+                                placeholder="Enter your message here...*"
                                 name="user_message"
                                 required
                             />
                             {/* btn */}
-                            <Button size="md" className="" value="reset" >
+                            <Button type="submit" size="md" value="reset">
                                 Send Message
                             </Button>
                         </form>
                     </div>
                     {/* info */}
                     <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
-                    {/* <div className="flex-1 flex flex-col items-start xl:items-end order-1 xl:order-none mb-6 xl:mb-0"> */}
                         <ul className="flex flex-col gap-10">
-                            {info.map((item, index) =>
-                            {
+                            {info.map((item, index) => {
                                 return (
                                     <li key={index} className="flex items-center gap-6">
                                         <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
@@ -103,23 +125,11 @@ const Contact = () =>
                                 );
                             })}
                         </ul>
-                        {/* Add the iframe below the address section */}
-                        {/* <div className="mt-6">
-                            <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1455.6011169412866!2d76.62435520576442!3d30.75612090808141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ffab11200aa4b%3A0xa7c7c75bf84b7750!2sQJ4G%2BGCP%2C%20Khanpur%20Phirni%2C%20Khanpur%2C%20Punjab%20140413!5e0!3m2!1sen!2sin!4v1722954238081!5m2!1sen!2sin" 
-                                width="510" 
-                                height="350" 
-                                style={{ border: 0 }} 
-                                allowFullScreen 
-                                loading="lazy" 
-                                referrerPolicy="no-referrer-when-downgrade"
-                            />
-                        </div> */}
                     </div>
                 </div>
             </div>
         </motion.section>
     );
-}
+};
 
 export default Contact;

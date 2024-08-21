@@ -108,10 +108,28 @@ const certification = {
         "Explore My Collection of Certifications.",
     items: [
         {
-            institution: "Linked Learning",
+            institution: "LinkedIn Learning",
             degree: "Microsoft Office Fundamentals",
             duration: "March 2024",
             link: "https://drive.google.com/file/d/1RRmXKgOa88R_IH3mA7d2p8CNhV01KXzr/view?usp=share_link",
+        },
+        {
+            institution: "Udemy",
+            degree: "Learn SQL Concept",
+            duration: "January 2024",
+            link: "https://www.udemy.com/certificate/UC-ea8c83e0-dc32-4bba-b48b-9dc38bb6329d/",
+        },
+        {
+            institution: "Udemy",
+            degree: " The Complete Introduction to C++ Programming",
+            duration: "October 2023",
+            link: "https://www.udemy.com/certificate/UC-d3a074a4-f7e4-426b-933b-29aa30c4a9d3/",
+        },
+        {
+            institution: "Udemy",
+            degree: "HTML & CSS",
+            duration: "August 2023",
+            link: "https://www.udemy.com/certificate/UC-a466eeb7-e007-4458-917b-1ccecc7ee71a/",
         },
         {
             institution: "COURSE",

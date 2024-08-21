@@ -8,13 +8,13 @@ const services = [
         num: '01',
         title: 'Web Development',
         description: 'Crafting responsive, user-friendly websites with modern web development techniques to bring your ideas to life and meet your unique needs.',
-        href: '',
+        href: '<error />',
     },
     {
         num: '02',
         title: 'UI/UX Design',
         description: 'Designing intuitive and visually appealing interfaces that enhance user experience and meet your unique needs, efficiently and creatively.',
-        href: '',
+        href: '<error />',
         
     },
     // {
