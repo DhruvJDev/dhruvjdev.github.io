@@ -9,7 +9,7 @@ import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
 
 const TypingEffect = () => {
-  const texts = ["Front-End Developer", "UI/UX Designer", "Freelancer"];
+  const texts = ["Front-End Developer", "UI/UX Designer"];
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
