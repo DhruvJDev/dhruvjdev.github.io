@@ -4,16 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
-
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
 import emailjs from 'emailjs-com';
 import { motion } from "framer-motion";
@@ -39,18 +29,23 @@ const info = [
     },
 ];
 
-const Contact = () => {
-    const formRef = useRef(null);
+const ContactUs = () => {
+    const formRef = useRef();
+    const [showPopup, setShowPopup] = useState(false);
 
     const sendEmail = (e) => {
         e.preventDefault();
 
-        emailjs.sendForm("service_54c80gp", "template_ue8t3bm", formRef.current, {
-            publicKey: "5Hu9yhucEO8IN9OeP",
-        }).then(
+        emailjs.sendForm(
+            'service_54c80gp',
+            'template_ue8t3bm',
+            formRef.current,
+            '5Hu9yhucEO8IN9OeP'
+        ).then(
             () => {
-                console.log('SUCCESS!');
-                console.log('Message Sent')
+                setShowPopup(true);
+                formRef.current.reset(); // Clears the form
+                setTimeout(() => setShowPopup(false), 5000); // Hides the popup after 5 seconds
             },
             (error) => {
                 console.log('FAILED...', error.text);
@@ -63,7 +58,7 @@ const Contact = () => {
             initial={{ opacity: 0 }}
             animate={{
                 opacity: 1,
-                transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
+                transition: { delay: 0.4, duration: 0.4, ease: "easeIn" },
             }}
             className="py-1"
         >
@@ -73,7 +68,6 @@ const Contact = () => {
                     <div className="xl:w-[54%] order-2 xl:order-none">
                         <form
                             ref={formRef}
-                            action=""
                             onSubmit={sendEmail}
                             className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
                         >
@@ -83,13 +77,13 @@ const Contact = () => {
                             </p>
                             {/* input */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <Input type="firstname" name="user_fname" placeholder="First Name*" required />
-                                <Input type="lastname" name="user_lname" placeholder="Last Lame" />
+                                <Input type="text" name="user_fname" placeholder="First Name*" required />
+                                <Input type="text" name="user_lname" placeholder="Last Name" />
                                 <Input type="email" name="user_email" placeholder="E-mail Id*" required />
                                 <Input type="tel" name="user_number" placeholder="Mobile Number" />
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
-                                <Input type="subject" name="user_subject" placeholder="Subject/Purpose*" required />
+                            <div className="grid grid-cols-1 gap-6">
+                                <Input type="text" name="user_subject" placeholder="Subject/Purpose*" required />
                             </div>
                             {/* textarea */}
                             <Textarea
@@ -99,7 +93,7 @@ const Contact = () => {
                                 required
                             />
                             {/* btn */}
-                            <Button type="submit" size="md" value="reset">
+                            <Button type="submit" size="md">
                                 Send Message
                             </Button>
                         </form>
@@ -107,29 +101,33 @@ const Contact = () => {
                     {/* info */}
                     <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
                         <ul className="flex flex-col gap-10">
-                            {info.map((item, index) => {
-                                return (
-                                    <li key={index} className="flex items-center gap-6">
-                                        <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
-                                            <div className="text-[28px]">
-                                                <Link href={item.link} target="_blank">
-                                                    {item.icon}
-                                                </Link>
-                                            </div>
+                            {info.map((item, index) => (
+                                <li key={index} className="flex items-center gap-6">
+                                    <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
+                                        <div className="text-[28px]">
+                                            <Link href={item.link} target="_blank">
+                                                {item.icon}
+                                            </Link>
                                         </div>
-                                        <div className="flex-1">
-                                            <p className="text-white/60">{item.title}</p>
-                                            <h3 className="text-xl">{item.description}</h3>
-                                        </div>
-                                    </li>
-                                );
-                            })}
+                                    </div>
+                                    <div className="flex-1">
+                                        <p className="text-white/60">{item.title}</p>
+                                        <h3 className="text-xl">{item.description}</h3>
+                                    </div>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
             </div>
+            {/* Popup Notification */}
+            {showPopup && (
+                <div className="fixed bottom-4 right-4 bg-[#1C1C22] text-accent p-4 rounded-md shadow-lg border border-accent">
+                    Mail Sent Successfully!
+                </div>
+            )}
         </motion.section>
     );
 };
 
-export default Contact;
+export default ContactUs;
