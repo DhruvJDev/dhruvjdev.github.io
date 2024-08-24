@@ -19,10 +19,10 @@ const stats = [
         num : 10,
         text: "Technologies Knows",
     },
-    {
-        num : 80,
-        text: "Code Commits",
-    },
+    // {
+    //     num : 80,
+    //     text: "Code Commits",
+    // },
 ]
 
 
