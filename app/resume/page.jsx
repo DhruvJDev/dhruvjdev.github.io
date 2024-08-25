@@ -103,6 +103,12 @@ const certification = {
         "Explore My Collection of Certifications.",
     items: [
         {
+            institution: "Coursera",
+            degree: "An Introduction to Interactive Programming in Python (Part 1)",
+            duration: "August 2024",
+            link: "https://www.coursera.org/account/accomplishments/verify/2G11Y75RK5ZQ",
+        },
+        {
             institution: "LinkedIn Learning",
             degree: "Microsoft Office Fundamentals",
             duration: "March 2024",
@@ -127,19 +133,19 @@ const certification = {
             link: "https://www.udemy.com/certificate/UC-a466eeb7-e007-4458-917b-1ccecc7ee71a/",
         },
         {
-            institution: "COURSE",
+            institution: "Coursera",
             degree: "Introduction to Social Media Marketing",
             duration: "March 2023",
             link: "https://coursera.org/verify/KPZAVXMP7WW6",
         },
         {
-            institution: "COURSE",
+            institution: "Coursera",
             degree: "Fundamentals of Social Media Advertising",
             duration: "March 2023",
             link: "https://coursera.org/verify/PD4RKLSBB2U4",
         },
         {
-            institution: "COURSE",
+            institution: "Coursera",
             degree: "Advertising with Meta",
             duration: "March 2023",
             link: "https://coursera.org/verify/SY54X364VKXP",
