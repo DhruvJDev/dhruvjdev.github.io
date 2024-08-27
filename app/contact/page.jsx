@@ -32,6 +32,7 @@ const info = [
 const ContactUs = () => {
     const formRef = useRef();
     const [showPopup, setShowPopup] = useState(false);
+    const [showErrorPopup, setShowErrorPopup] = useState(false); // New state for error message
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -49,6 +50,8 @@ const ContactUs = () => {
             },
             (error) => {
                 console.log('FAILED...', error.text);
+                setShowErrorPopup(true); // Show error popup
+                setTimeout(() => setShowErrorPopup(false), 5000); // Hides the error popup after 5 seconds
             }
         );
     };
@@ -120,10 +123,16 @@ const ContactUs = () => {
                     </div>
                 </div>
             </div>
-            {/* Popup Notification */}
+            {/* Success Popup Notification */}
             {showPopup && (
                 <div className="fixed bottom-4 right-4 bg-[#1C1C22] text-accent p-4 rounded-md shadow-lg border border-accent">
                     Mail Sent Successfully!
+                </div>
+            )}
+            {/* Error Popup Notification */}
+            {showErrorPopup && (
+                <div className="fixed bottom-4 right-4 bg-[#1C1C22] text-red-600 p-4 rounded-md shadow-lg border border-red-600">
+                    Mail Not Sent Successfully!
                 </div>
             )}
         </motion.section>
