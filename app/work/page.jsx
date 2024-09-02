@@ -7,8 +7,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
-
-import {
+import { FaFigma } from "react-icons/fa";
+import
+{
     Tooltip,
     TooltipContent,
     TooltipProvider,
@@ -27,7 +28,7 @@ const projects = [
         description: "Environs is a responsive website template for environmental NGOs, featuring social media integration, SEO optimization, and donation support. Built with Bootstrap 5, HTML5, CSS3, and jQuery3, it helps organizations effectively communicate and engage supporters.",
         stack: [{ name: "HTML5" }, { name: "CSS3" }, { name: "JavaScript" }],
         image: '/assets/work/p-1.png',
-        live: " https://dhruvjdev.github.io/Protect-Environment/",
+        live: "https://dhruvjdev.github.io/Protect-Environment/",
         github: "https://github.com/DhruvJDev/Protect-Environment",
     },
     {
@@ -40,13 +41,25 @@ const projects = [
         live: "",
         github: "https://github.com/DhruvJDev/made-setup",
     },
+    // {
+    //     category: "UI/UX Design",
+    //     title: "Personal Card",
+    //     description:
+    //         "Here you can buy any or every product related to your setup, including categories like gamers, designers, etc., so you can choose products according to your specification or requirement.",
+    //     stack: [{ name: "HTML5" }, { name: "CSS3" }, { name: "JavaScript" }],
+    //     image: '/assets/work/p-2.png',
+    //     live: "https://www.figma.com/proto/nDoI9q19NwMF1uXnm5cSTF/Personal-Card?page-id=2%3A27&node-id=2-28&node-type=CANVAS&viewport=443%2C413%2C0.27&t=0nru6v6ND5fi4W1F-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2%3A28&share=1",
+    //     figma: "https://www.figma.com/design/nDoI9q19NwMF1uXnm5cSTF/Personal-Card?node-id=2-27&t=cUVmgXcwvTiV18v6-1",
+    // },
     // Additional projects can be added here
 ];
 
-const Work = () => {
+const Work = () =>
+{
     const [project, setProject] = useState(projects[0]);
 
-    const handleSlideChange = (swiper) => {
+    const handleSlideChange = (swiper) =>
+    {
         // get current slide index
         const currentIndex = swiper.activeIndex;
         // update project state based on current slide index
@@ -93,46 +106,54 @@ const Work = () => {
                             </ul>
                             {/* border */}
                             <div className="border border-white/60"></div>
-                            {/* button */}
+                            {/* buttons */}
                             <div className="flex items-center gap-4">
-                                {/* live project button */}
-                                <TooltipProvider delayDuration={100}>
-                                    <Tooltip>
-                                        <TooltipTrigger>
-                                            <Link
-                                                href={project.live}
-                                                passHref
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group"
-                                            >
-                                                <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
-                                            </Link>
-                                        </TooltipTrigger>
-                                        <TooltipContent>
-                                            <p>Live Project</p>
-                                        </TooltipContent>
-                                    </Tooltip>
-                                </TooltipProvider>
-                                {/* github project button */}
-                                <TooltipProvider delayDuration={100}>
-                                    <Tooltip>
-                                        <TooltipTrigger>
-                                            <Link
-                                                href={project.github}
-                                                passHref
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group"
-                                            >
-                                                <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                                            </Link>
-                                        </TooltipTrigger>
-                                        <TooltipContent>
-                                            <p>Github Repository</p>
-                                        </TooltipContent>
-                                    </Tooltip>
-                                </TooltipProvider>
+                                {/* Conditionally render the live project/prototype button */}
+                                {project.live && (
+                                    <TooltipProvider delayDuration={100}>
+                                        <Tooltip>
+                                            <TooltipTrigger>
+                                                <Link
+                                                    href={project.live}
+                                                    passHref
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group"
+                                                >
+                                                    <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
+                                                </Link>
+                                            </TooltipTrigger>
+                                            <TooltipContent>
+                                                <p>{project.figma ? "Live Prototype" : "Live Project"}</p>
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
+                                )}
+                                {/* Conditionally render the GitHub/Figma button */}
+                                {(project.github || project.figma) && (
+                                    <TooltipProvider delayDuration={100}>
+                                        <Tooltip>
+                                            <TooltipTrigger>
+                                                <Link
+                                                    href={project.github || project.figma}
+                                                    passHref
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group"
+                                                >
+                                                    {project.github ? (
+                                                        <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                                                    ) : (
+                                                        <FaFigma className="text-white text-3xl group-hover:text-accent" />
+                                                    )}
+                                                </Link>
+                                            </TooltipTrigger>
+                                            <TooltipContent>
+                                                <p>{project.github ? "Github Repository" : "Figma Design"}</p>
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
+                                )}
                             </div>
                         </div>
                     </div>
