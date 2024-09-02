@@ -29,12 +29,14 @@ const info = [
     },
 ];
 
-const ContactUs = () => {
+const ContactUs = () =>
+{
     const formRef = useRef();
     const [showPopup, setShowPopup] = useState(false);
     const [showErrorPopup, setShowErrorPopup] = useState(false); // New state for error message
 
-    const sendEmail = (e) => {
+    const sendEmail = (e) =>
+    {
         e.preventDefault();
 
         emailjs.sendForm(
@@ -43,12 +45,14 @@ const ContactUs = () => {
             formRef.current,
             '5Hu9yhucEO8IN9OeP'
         ).then(
-            () => {
+            () =>
+            {
                 setShowPopup(true);
                 formRef.current.reset(); // Clears the form
                 setTimeout(() => setShowPopup(false), 5000); // Hides the popup after 5 seconds
             },
-            (error) => {
+            (error) =>
+            {
                 console.log('FAILED...', error.text);
                 setShowErrorPopup(true); // Show error popup
                 setTimeout(() => setShowErrorPopup(false), 5000); // Hides the error popup after 5 seconds
@@ -115,7 +119,11 @@ const ContactUs = () => {
                                     </div>
                                     <div className="flex-1">
                                         <p className="text-white/60">{item.title}</p>
-                                        <h3 className="text-xl">{item.description}</h3>
+                                        <h3 className="text-xl">
+                                            <Link href={item.link} target="_blank">
+                                                {item.description}
+                                            </Link>
+                                        </h3>
                                     </div>
                                 </li>
                             ))}
