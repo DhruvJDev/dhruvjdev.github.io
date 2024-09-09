@@ -116,7 +116,7 @@ const certification = {
         },
         {
             institution: "Udemy",
-            degree: "Learn SQL Concept",
+            degree: "Learn SQL Concepts",
             duration: "January 2024",
             link: "https://www.udemy.com/certificate/UC-ea8c83e0-dc32-4bba-b48b-9dc38bb6329d/",
         },
