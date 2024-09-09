@@ -24,15 +24,6 @@ import { Description } from "@radix-ui/react-dialog";
 const projects = [
     {
         category: "Front-end",
-        title: "Protect Environment",
-        description: "Environs is a responsive website template for environmental NGOs, featuring social media integration, SEO optimization, and donation support. Built with Bootstrap 5, HTML5, CSS3, and jQuery3, it helps organizations effectively communicate and engage supporters.",
-        stack: [{ name: "HTML5" }, { name: "CSS3" }, { name: "JavaScript" }],
-        image: '/assets/work/p-1.png',
-        live: "https://dhruvjdev.github.io/Protect-Environment/",
-        github: "https://github.com/DhruvJDev/Protect-Environment",
-    },
-    {
-        category: "Front-end",
         title: "Made Setup",
         description:
             "Here you can buy any or every product related to your setup, including categories like gamers, designers, etc., so you can choose products according to your specification or requirement.",
@@ -40,6 +31,15 @@ const projects = [
         image: '/assets/work/p-2.png',
         live: "",
         github: "https://github.com/DhruvJDev/made-setup",
+    },
+    {
+        category: "Front-end",
+        title: "Protect Environment",
+        description: "Environs is a responsive website template for environmental NGOs, featuring social media integration, SEO optimization, and donation support. Built with Bootstrap 5, HTML5, CSS3, and jQuery3, it helps organizations effectively communicate and engage supporters.",
+        stack: [{ name: "HTML5" }, { name: "CSS3" }, { name: "JavaScript" }],
+        image: '/assets/work/p-1.png',
+        live: "https://dhruvjdev.github.io/Protect-Environment/",
+        github: "https://github.com/DhruvJDev/Protect-Environment",
     },
     // {
     //     category: "UI/UX Design",
