@@ -104,6 +104,12 @@ const certification = {
     items: [
         {
             institution: "Coursera",
+            degree: "An Introduction to Interactive Programming in Python (Part 2)",
+            duration: "August 2024",
+            link: "https://www.coursera.org/account/accomplishments/verify/XMPG6ZHJV1HJ",
+        },
+        {
+            institution: "Coursera",
             degree: "An Introduction to Interactive Programming in Python (Part 1)",
             duration: "August 2024",
             link: "https://www.coursera.org/account/accomplishments/verify/2G11Y75RK5ZQ",
