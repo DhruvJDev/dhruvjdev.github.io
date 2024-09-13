@@ -18,8 +18,8 @@ const info = [
     {
         icon: <FaEnvelope />,
         title: "Email",
-        description: "djindal015@gmail.com",
-        link: "mailto:djindal015@gmail.com",
+        description: "dhruvjindal156@gmail.com",
+        link: "mailto:dhruvjindal156@gmail.com",
     },
     {
         icon: <FaMapMarkedAlt />,

@@ -39,7 +39,7 @@ const about = {
         },
         {
             fieldName: "Email",
-            fieldValue: "Djindal015@gmail.com"
+            fieldValue: "Dhruvjindal156@gmail.com"
         },
         {
             fieldName: "Freelancing",
