@@ -40,10 +40,10 @@ const ContactUs = () =>
         e.preventDefault();
 
         emailjs.sendForm(
-            'service_54c80gp',
-            'template_ue8t3bm',
+            'service_bt8ryww',
+            'template_zew81vl',
             formRef.current,
-            '5Hu9yhucEO8IN9OeP'
+            'BaMsYgml3Oe9QHq2A'
         ).then(
             () =>
             {
@@ -140,7 +140,7 @@ const ContactUs = () =>
             {/* Error Popup Notification */}
             {showErrorPopup && (
                 <div className="fixed bottom-4 right-4 bg-[#1C1C22] text-red-600 p-4 rounded-md shadow-lg border border-red-600">
-                    Mail Not Sent Successfully!
+                    Mail Not Sent!
                 </div>
             )}
         </motion.section>
