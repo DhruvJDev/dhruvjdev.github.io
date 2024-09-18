@@ -31,7 +31,7 @@ const about = {
         },
         {
             fieldName: "Phone",
-            fieldValue: "+91 95184-19715"
+            fieldValue: "+91 88728-89961"
         },
         {
             fieldName: "Experience",
