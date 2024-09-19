@@ -41,10 +41,10 @@ const about = {
             fieldName: "Email",
             fieldValue: "Dhruvjindal156@gmail.com"
         },
-        {
-            fieldName: "Freelancing",
-            fieldValue: "Available"
-        },
+        // {
+        //     fieldName: "Freelancing",
+        //     fieldValue: "Available"
+        // },
         {
             fieldName: "Language",
             fieldValue: "English, Hindi"
